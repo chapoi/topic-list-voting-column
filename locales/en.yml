@@ -1,0 +1,5 @@
+en:
+  theme_metadata:
+    description: Adds a column to the regular topic list table to display votes
+    settings:
+      example_setting: A description of a setting.
