@@ -25,8 +25,6 @@ export default class TopicVoteColumn extends Component {
     return this.args.topic.user_voted;
   }
 
-  get isVotingCategory() {}
-
   <template>
     {{log settings.bells_and_whistles_styling "bells_and_whistles_styling"}}
     {{#if this.args.topic.can_vote}}

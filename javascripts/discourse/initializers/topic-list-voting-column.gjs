@@ -2,15 +2,6 @@ import SortableColumn from "discourse/components/topic-list/header/sortable-colu
 import { withPluginApi } from "discourse/lib/plugin-api";
 import TopicVoteColumn from "../components/topic-votes";
 
-// const votingCategories = settings.voting_categories.split("|").map(Number);
-
-// function isVotingCategory() {
-//   const currentCategoryId = discovery.category?.id;
-//   return (
-//     currentCategoryId && votingCategories.some((c) => c === currentCategoryId)
-//   );
-// }
-
 const TopicVotingHeader = <template>
   <SortableColumn
     @sortable={{@sortable}}
@@ -45,6 +36,7 @@ export default {
         "topic-list-columns",
         ({ value: columns }) => {
           const currentCategory = discovery.category;
+
           if (currentCategory?.can_vote || settings.show_everywhere) {
             columns.add(
               "topic-voting",
