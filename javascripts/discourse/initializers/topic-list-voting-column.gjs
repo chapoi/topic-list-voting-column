@@ -32,6 +32,12 @@ export default {
   name: "topic-list-voting-column",
 
   initialize(container) {
+    const siteSettings = container.lookup("service:site-settings");
+
+    if (!siteSettings.topic_voting_enabled) {
+      return;
+    }
+
     const discovery = container.lookup("service:discovery");
 
     withPluginApi((api) => {
@@ -39,7 +45,7 @@ export default {
         "topic-list-columns",
         ({ value: columns }) => {
           const currentCategory = discovery.category;
-          if (currentCategory?.can_vote) {
+          if (currentCategory?.can_vote || settings.show_everywhere) {
             columns.add(
               "topic-voting",
               { header: TopicVotingHeader, item: TopicVotingItem },
