@@ -26,8 +26,7 @@ export default class TopicVoteColumn extends Component {
   }
 
   <template>
-    {{log settings.bells_and_whistles_styling "bells_and_whistles_styling"}}
-    {{#if this.args.topic.can_vote}}
+    {{#if @topic.can_vote}}
       <div
         class="topic-votes__wrapper
           {{if this.hasVotes '--has-votes'}}
