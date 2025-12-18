@@ -2,3 +2,17 @@ hide_vote_tab_in_navigation:
   default: false
   type: bool
   description: "settings.hide_vote_tab_in_navigation.description"
+show_everywhere:
+  default: false
+  type: bool
+  description: "settings.show_everywhere.description"
+styling:
+  default: "Dry: No special styling – just the number"
+  type: enum
+  choices:
+    - "Dry: No special styling – just the number"
+    - "Spicy: Bells & Whistles"
+hot_treshold:
+  default: 5
+  type: integer
+  description: "settings.hot_treshold.description"

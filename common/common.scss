@@ -1,8 +1,52 @@
-// Theme's SCSS
-
-// Hide vote tab in navigation when setting is enabled
 @if $hide_vote_tab_in_navigation {
   #navigation-bar .nav-item_votes {
     display: none;
+  }
+}
+
+.topic-list {
+  .topic-votes {
+    text-align: center;
+
+    &__wrapper {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-1);
+      border: 1px solid var(--primary-low);
+      border-radius: 5px;
+      padding: var(--space-1);
+      margin-inline: 1rem;
+
+      &.--has-votes {
+        color: var(--tertiary);
+        font-weight: bold;
+        background: linear-gradient(
+          to bottom,
+          rgb(var(--tertiary-rgb), 0.14),
+          rgb(var(--tertiary-rgb), 0.08)
+        );
+        border: 1px solid var(--tertiary-high);
+      }
+
+      &:not(.--has-votes) {
+        color: var(--primary-low-mid);
+      }
+
+      &.--is-hot {
+        color: var(--danger);
+        background: linear-gradient(
+          to bottom,
+          rgb(160, 0, 0.8, 0.14),
+          rgb(160, 0, 0.8, 0.08)
+        );
+        border: 1px solid var(--danger-hover);
+      }
+    }
+
+    &__count {
+      line-height: 1;
+      padding-right: 0.15rem;
+    }
   }
 }
