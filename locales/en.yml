@@ -2,4 +2,4 @@ en:
   theme_metadata:
     description: Adds a column to the regular topic list table to display votes
     settings:
-      example_setting: A description of a setting.
+      hide_vote_tab_in_navigation.description: Will hide the "Votes" tab from the navigation.

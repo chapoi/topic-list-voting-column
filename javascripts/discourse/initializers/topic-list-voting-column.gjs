@@ -1,3 +1,4 @@
+import SortableColumn from "discourse/components/topic-list/header/sortable-column";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import TopicVoteColumn from "../components/topic-votes";
 
@@ -10,7 +11,18 @@ import TopicVoteColumn from "../components/topic-votes";
 //   );
 // }
 
-const TopicVoting = <template>
+const TopicVotingHeader = <template>
+  <SortableColumn
+    @sortable={{@sortable}}
+    @order="votes"
+    @activeOrder={{@activeOrder}}
+    @changeSort={{@changeSort}}
+    @ascending={{@ascending}}
+    @name="topic_voting.vote_title_plural"
+  />
+</template>;
+
+const TopicVotingItem = <template>
   <td class="topic-votes">
     <TopicVoteColumn @topic={{@topic}} />
   </td>
@@ -30,17 +42,13 @@ export default {
           if (currentCategory?.can_vote) {
             columns.add(
               "topic-voting",
-              { item: TopicVoting },
+              { header: TopicVotingHeader, item: TopicVotingItem },
               { after: "replies" }
             );
           }
           return columns;
         }
       );
-
-      // api.registerValueTransformer("topic-list-item-mobile-layout", () => {
-      //   return false;
-      // });
     });
   },
 };

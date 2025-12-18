@@ -1,1 +1,8 @@
 // Theme's SCSS
+
+// Hide vote tab in navigation when setting is enabled
+@if $hide_vote_tab_in_navigation {
+  #navigation-bar .nav-item_votes {
+    display: none;
+  }
+}

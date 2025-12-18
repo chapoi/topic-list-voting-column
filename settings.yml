@@ -1,2 +1,4 @@
-example_setting:
-  default: true
+hide_vote_tab_in_navigation:
+  default: false
+  type: bool
+  description: "settings.hide_vote_tab_in_navigation.description"
