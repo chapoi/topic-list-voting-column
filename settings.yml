@@ -6,12 +6,10 @@ show_everywhere:
   default: false
   type: bool
   description: "settings.show_everywhere.description"
-styling:
-  default: "Dry: No special styling – just the number"
-  type: enum
-  choices:
-    - "Dry: No special styling – just the number"
-    - "Spicy: Bells & Whistles"
+bells_and_whistles_styling:
+  default: false
+  type: bool
+  description: "settings.bells_and_whistles_styling.description"
 hot_treshold:
   default: 5
   type: integer

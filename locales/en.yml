@@ -4,4 +4,11 @@ en:
     settings:
       hide_vote_tab_in_navigation.description: Hide the "Votes" tab from the navigation.
       show_everywhere.description: Show vote counts in all topic lists. If left unchecked, it will only show on category topic-lists that have voting enabled.
+      bells_and_whistles_styling.description: Leave unchecked to only display the vote count. Check for a spiced up look.
       hot_treshold.description: The number of votes required for a topic to be considered 'hot'.
+  js:
+    topic_voting:
+      user_has_voted: "You have voted"
+      vote_count:
+        one: "This topic has %{count} vote"
+        other: "This topic has %{count} votes"

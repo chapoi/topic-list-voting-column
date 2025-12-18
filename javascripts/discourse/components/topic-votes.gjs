@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { and } from "truth-helpers";
 import icon from "discourse/helpers/d-icon";
 import { i18n } from "discourse-i18n";
 
@@ -20,24 +21,32 @@ export default class TopicVoteColumn extends Component {
     }
   }
 
+  get hasVoted() {
+    return this.args.topic.user_voted;
+  }
+
   get isVotingCategory() {}
 
   <template>
-    {{log this.args.topic}}
+    {{log settings.bells_and_whistles_styling "bells_and_whistles_styling"}}
     {{#if this.args.topic.can_vote}}
       <div
         class="topic-votes__wrapper
           {{if this.hasVotes '--has-votes'}}
           {{if this.isHot '--is-hot'}}"
-        title="{{i18n 'topic_voting.vote_count' count=this.topicVotes}}"
+        title={{i18n "topic_voting.vote_count" count=this.topicVotes}}
       >
 
-        <span
-          class="topic-votes__hot-indicator"
-          title="{{i18n 'topic_voting.hot_topic'}}"
-        >
-        </span>
+        {{#if (and this.hasVoted settings.bells_and_whistles_styling)}}
+          <span
+            class="topic-votes__voted-icon"
+            title={{i18n "topic_voting.user_has_voted"}}
+          >
+            {{icon "stamp"}}
+          </span>
+        {{/if}}
         {{icon "caret-up"}}
+
         <span class="topic-votes__count">{{this.topicVotes}}</span>
       </div>
     {{/if}}
