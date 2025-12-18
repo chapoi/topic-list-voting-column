@@ -10,7 +10,7 @@ bells_and_whistles_styling:
   default: false
   type: bool
   description: "settings.bells_and_whistles_styling.description"
-hot_treshold:
+hot_votes_minimum:
   default: 5
   type: integer
-  description: "settings.hot_treshold.description"
+  description: "settings.hot_votes_minimum.description"

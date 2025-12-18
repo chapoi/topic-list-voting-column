@@ -13,11 +13,11 @@ export default class TopicVoteColumn extends Component {
   }
 
   get isHot() {
-    const hotTreshold = parseInt(settings.hot_treshold || "5", 10);
-    if (hotTreshold <= 0) {
+    const hotVotesMinimum = parseInt(settings.hot_votes_minimum || "5", 10);
+    if (hotVotesMinimum <= 0) {
       return false;
     } else {
-      return this.topicVotes >= hotTreshold;
+      return this.topicVotes >= hotVotesMinimum;
     }
   }
 
